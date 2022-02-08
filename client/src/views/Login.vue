@@ -1,9 +1,9 @@
 <template>
   <v-layout column>
     <v-flex xs6 offset-xs3>
-      <v-card class="mt-6" title="Register">
+      <v-card class="mt-6" title="Login">
         <v-card-title>
-          Register
+          Login
         </v-card-title>
         <v-card-text>
         <form 
@@ -29,8 +29,8 @@
         <v-btn
           dark
           class="cyan"
-          @click="register">
-          Register
+          @click="login">
+          Login
         </v-btn>
         </v-card-actions>
       </v-card>
@@ -49,9 +49,9 @@ export default {
     }
   },
   methods: {
-    async register () {
+    async login () {
       try {
-        const response = await AuthenticationService.register({
+        const response = await AuthenticationService.login({
           email: this.email,
           password: this.password
         })
