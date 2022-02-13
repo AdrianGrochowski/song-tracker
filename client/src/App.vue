@@ -6,13 +6,18 @@
       dark
     >
      SongTracker
-
+<v-btn>
+        <router-link to="/songs">BROWSE</router-link>
+      </v-btn>
       <v-spacer></v-spacer>
-      <v-btn>
+      <v-btn v-if="!$store.state.isUserLoggedIn">
         <router-link to="/login">LOGIN</router-link>
       </v-btn>
-      <v-btn>
+      <v-btn v-if="!$store.state.isUserLoggedIn">
         <router-link to="/register">Sign up</router-link>
+      </v-btn>
+      <v-btn v-if="$store.state.isUserLoggedIn">
+        Log out
       </v-btn>
     </v-app-bar>
 
@@ -30,5 +35,14 @@ export default {
   data: () => ({
     //
   }),
+  methods: {
+    logout() {
+      this.$store.dispatch('setToken', null)
+      this.$store.dispatch('setUser', null)
+      this.$router.push({
+        name: 'root'
+      })
+    }
+  }
 };
 </script>

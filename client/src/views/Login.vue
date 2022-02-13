@@ -1,6 +1,5 @@
 <template>
-  <v-layout column>
-    <v-flex xs6 offset-xs3>
+  <v-container>
       <v-card class="mt-6" title="Login">
         <v-card-title>
           Login
@@ -34,8 +33,7 @@
         </v-btn>
         </v-card-actions>
       </v-card>
-    </v-flex>
-  </v-layout>
+    </v-container>
 </template>
 
 <script>
@@ -55,6 +53,8 @@ export default {
           email: this.email,
           password: this.password
         })
+        this.$store.dispatch('setToken', response.data.token)
+        this.$store.dispatch('setUser', response.data.user)
       } catch (error) {
         this.error = error.response.data.error
       }
