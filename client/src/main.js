@@ -4,6 +4,9 @@ import router from './router'
 import store from './store'
 import { sync } from 'vuex-router-sync'
 import vuetify from './plugins/vuetify'
+import VueYouTubeEmbed from 'vue-youtube-embed'
+
+Vue.use(VueYouTubeEmbed)
 
 Vue.config.productionTip = false
 

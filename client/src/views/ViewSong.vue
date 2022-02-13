@@ -11,6 +11,7 @@
       </v-card-title>
       <v-card-text>
         {{song}}
+        <youtube :video-id="song.youtubeId" :player-width="500" :player-height="200" />
       </v-card-text>
     </v-card>
   </v-container>
